@@ -6,11 +6,28 @@ import Login from "./pages/Login";
 import { useRoutes } from "react-router";
 import "./App.css";
 import UserDetail from "./pages/Userdetail";
+import ProtectedRoute from "./routes/Protectedroute";
+import Register from "./pages/Register";
 
 const routes = [
-  { path: "/", element: <Homepage /> },
+  {
+    path: "/",
+    element: (
+      <ProtectedRoute>
+        <Homepage />
+      </ProtectedRoute>
+    ),
+  },
   { path: "/login", element: <Login /> },
-  { path: "/detail/:userId", element: <UserDetail /> },
+  { path: "/register", element: <Register /> },
+  {
+    path: "/detail/:userId",
+    element: (
+      <ProtectedRoute>
+        <UserDetail />
+      </ProtectedRoute>
+    ),
+  },
 ];
 
 function App() {
