@@ -12,7 +12,7 @@ const Footer = () => {
       }}
     >
       <p style={{ margin: 0 }}>
-        ©{new Date().getFullYear()} INI FOOD MARKET - Created by Rian Faisal Mahendra
+        ©{new Date().getFullYear()} INI FOOD MARKET -Created by Rian Faisal Mahendra
       </p>
     </footer>
   );
