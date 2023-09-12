@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import Footer from "../components/Footer";
 
-export const Register = () => {
+const Register = () => {
   const [name, setName] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -13,6 +14,7 @@ export const Register = () => {
   const handleChangeName = (e) => {
     setName(e.target.value);
   };
+
   const handleChangeUserName = (e) => {
     setUserName(e.target.value);
   };
@@ -33,8 +35,6 @@ export const Register = () => {
       .post("https://api.mudoapi.tech/register", payload)
       .then((res) => {
         console.log(res);
-
-        // localStorage.setItem("token", abcdefege);
       })
       .catch((err) => {
         localStorage.setItem("token", "abcdefege");
@@ -42,23 +42,77 @@ export const Register = () => {
         console.log(err.message);
         setErr(err.message);
       });
+  };
 
-    //cara panggil api ketika Register
+  const containerStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "100vh",
+  };
+
+  const cardStyle = {
+    width: "300px",
+    padding: "20px",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+    boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
+  };
+
+  const titleStyle = {
+    textAlign: "center",
+    fontSize: "24px",
+    marginBottom: "20px",
+  };
+
+  const inputStyle = {
+    padding: "10px",
+    margin: "10px",
+  };
+
+  const buttonStyle = {
+    padding: "10px 60px",
+    margin: "30px",
+    background: "#007bff",
+    color: "#fff",
+    border: "none",
+    cursor: "pointer",
   };
 
   return (
     <>
       <Navbar />
-      {!!err.length && <h1 style={{ color: "red" }}>{err}</h1>}
-      <div>
-        <h1>Register</h1>
-        <div>
-          <input onChange={handleChangeName} placeholder="name" />
-          <input onChange={handleChangeUserName} placeholder="username" />
-          <input onChange={handleChangePass} placeholder="password" />
-          <button onClick={handleSubmit}>Register</button>
+      <div style={containerStyle}>
+        <div style={cardStyle}>
+          <h1 style={titleStyle}>Register</h1>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <input
+              onChange={handleChangeName}
+              placeholder="Enter your name"
+              style={inputStyle}
+            />
+            <input
+              onChange={handleChangeUserName}
+              placeholder="Enter your username"
+              style={inputStyle}
+            />
+            <input
+              onChange={handleChangePass}
+              placeholder="Enter your password"
+              style={inputStyle}
+            />
+          </div>
+          {!!err.length && (
+            <h3 style={{ color: "red", textAlign: "center" }}>{err}</h3>
+          )}
+          <div style={{ textAlign: "center" }}>
+            <button onClick={handleSubmit} style={buttonStyle}>
+              Register
+            </button>
+          </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

@@ -2,12 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const UserDetail = () => {
   const [menu, setMenu] = useState({});
   const param = useParams();
-
-  console.log(param.userId);
 
   const getMenu = () => {
     axios
@@ -21,22 +20,23 @@ const UserDetail = () => {
   };
 
   const handleDelete = () => {
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJ1c2VybmFtZSI6Im11aHNpbjEiLCJ1c2VySWQiOjQsImJyYW5jaElkIjowLCJlbWFpbCI6IiIsInJvbGVOYW1lIjoiZW1wbG95ZWUifSwiaXNzIjoibXVkby1hcHAifQ.ix82FNh3k9EBPfBT7ZXfJSU_4BTxvYwyKeAlz5bJHss";
 
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    axios
-      .delete(`https://api.mudoapi.tech/menu/${param?.userId}`, config)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // const token =
+    //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJ1c2VybmFtZSI6Im11aHNpbjEiLCJ1c2VySWQiOjQsImJyYW5jaElkIjowLCJlbWFpbCI6IiIsInJvbGVOYW1lIjoiZW1wbG95ZWUifSwiaXNzIjoibXVkby1hcHAifQ.ix82FNh3k9EBPfBT7ZXfJSU_4BTxvYwyKeAlz5bJHss";
+
+    // const config = {
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    // };
+    // axios
+    //   .delete(`https://api.mudoapi.tech/menu/${param?.userId}`, config)
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   useEffect(() => {
@@ -46,13 +46,21 @@ const UserDetail = () => {
   return (
     <>
       <Navbar />
-      <div>
-        <h1>Halaman Detail</h1>
-        <h1>{menu?.name}</h1>
-        <p>{menu?.description}</p>
-        <img style={{ width: "200px" }} src={menu?.imageUrl} />
-        <button onClick={handleDelete}>delete</button>
+      <div style={{ textAlign: "center" }}>
+        <h1 style={{ fontSize: "36px", color: "#000000" }}>Detail Menu</h1>
+        <div style={{ backgroundColor: "#f8f9fa", padding: "20px", borderRadius: "5px" }}>
+          <h3>{menu?.name}</h3>
+          <h4>{menu?.type}</h4>
+          <img style={{ width: "300px" }} src={menu?.imageUrl} alt={menu?.name} />
+          <p>{menu?.description}</p>
+          <h2>Rp {menu?.price}</h2>
+          {/* Jika Anda ingin menambahkan tombol hapus, Anda dapat mengaktifkan kode berikut */}
+          {/* <button onClick={handleDelete} className="btn btn-danger" style={{ marginTop: "20px" }}>
+            Hapus
+          </button> */}
+        </div>
       </div>
+      <Footer />
     </>
   );
 };
