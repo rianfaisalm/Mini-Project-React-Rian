@@ -33,7 +33,7 @@ const Homepage = () => {
   };
 
   const handleChangeSearch = (e) => {
-    setSearch(e.target.value.toLowerCase()); // Konversi ke huruf kecil agar pencarian case-insensitive
+    setSearch(e.target.value.toLowerCase()); 
   };
 
   const handleDelete = (id) => {
@@ -70,8 +70,8 @@ const Homepage = () => {
   
   const imageStyle = {
     height: "10rem",
-    objectFit: "cover", // Mengatur gambar agar mengisi dengan benar
-    borderRadius: "10px 10px 0 0", // Menyesuaikan radius sudut atas
+    objectFit: "cover", 
+    borderRadius: "10px 10px 0 0", 
   };
 
   return (
@@ -101,7 +101,7 @@ const Homepage = () => {
             <div
             key={key}
             className="col-lg-4 col-md-6 col-sm-12 col-12"
-            style={{ marginBottom: "20px", flex: "0 0 33.33%" }} // Atur lebar card
+            style={{ marginBottom: "20px", flex: "0 0 33.33%" }} 
           >
             <div className="card" style={cardStyle}>
                 <img

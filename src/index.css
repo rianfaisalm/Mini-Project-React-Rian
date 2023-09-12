@@ -31,7 +31,7 @@ a:hover {
 }
 
 body {
-  max-width: 100%; /* Sesuaikan lebar kontainer sesuai kebutuhan Anda */
+  max-width: 100%; 
   margin: 0 auto;
   padding: 0 auto;
   /* display: flex; */

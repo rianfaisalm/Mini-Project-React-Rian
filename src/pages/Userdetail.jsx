@@ -54,7 +54,6 @@ const UserDetail = () => {
           <img style={{ width: "300px" }} src={menu?.imageUrl} alt={menu?.name} />
           <p>{menu?.description}</p>
           <h2>Rp {menu?.price}</h2>
-          {/* Jika Anda ingin menambahkan tombol hapus, Anda dapat mengaktifkan kode berikut */}
           {/* <button onClick={handleDelete} className="btn btn-danger" style={{ marginTop: "20px" }}>
             Hapus
           </button> */}

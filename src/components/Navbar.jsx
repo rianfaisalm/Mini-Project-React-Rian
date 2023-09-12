@@ -14,7 +14,7 @@ const Navbar = () => {
     alignItems: "center",
     background: "grey",
     padding: "10px",
-    paddingBottom: "20px", // Mengurangi padding bawah untuk menghindari kelonggaran yang berlebihan
+    paddingBottom: "20px",
     // width: "100%",
   };
 
@@ -25,7 +25,7 @@ const Navbar = () => {
   const rightLinkStyle = {
     marginLeft: "auto",
     display: "flex",
-    alignItems: "center", // Mengatur elemen vertikal di tengah sudut kanan
+    alignItems: "center", 
   };
 
   const linkMargin = {
@@ -36,8 +36,8 @@ const Navbar = () => {
 
   const logoStyle = {
     fontStyle: "italic",
-    fontWeight: "bold", // Menjadikan teks lebih tebal
-    fontSize: "24px", // Mengatur ukuran font
+    fontWeight: "bold", 
+    fontSize: "24px", 
     margin: "0",
     marginLeft: "20px",
     color: "#ffff",
@@ -58,13 +58,13 @@ const Navbar = () => {
         <button
           onClick={handleLogout}
           style={{
-            ...linkMargin, // Menambahkan gaya linkMargin ke button
+            ...linkMargin, 
             padding: "10px 20px",
             margin: "10px",
-            background: "#FFA500", // Mengatur latar belakang tombol menjadi oranye
-            border: "none", // Menghilangkan border tombol
-            color: "#fff", // Mengatur warna teks tombol menjadi putih
-            cursor: "pointer", // Mengubah kursor saat mengarah ke tombol
+            background: "#FFA500", 
+            border: "none", 
+            color: "#fff", 
+            cursor: "pointer", 
           }}
         >
           Logout
